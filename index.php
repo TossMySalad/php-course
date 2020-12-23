@@ -12,6 +12,9 @@
 		$products['car'] = 15000;
 		$products['phone'] = 500;
 		$products['toaster'] = 25;
+		$amount = 800;
+		$taxRate = 0.0825;
+		$addedTax = $amount * $taxRate;
 
 		echo "<h1>Welcome to ".$name.".</h1>";
 		echo "<h2>You have $".$credit." in your wallet.</h2>";
@@ -27,6 +30,14 @@
 				echo "<p>".$key."</p>";
 			}
 		}
+
+		function tax_calc($amount, $tax) {
+			$calculate_tax = $amount * $tax;
+			$amount = round($amount + $calculate_tax, 2);
+			return $amount;
+		}
+
+		echo tax_calc(750, 0.223);
 		?>
 	</body>
 </html>
